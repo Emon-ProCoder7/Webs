@@ -13,8 +13,7 @@ server <- function(input, output, session) {
     
     
     rval_mass_shootings <- reactive({
-        # MODIFY CODE BELOW: Filter mass_shootings on nb_fatalities and 
-        # selected date_range.
+       
         mass_shootings %>%
             filter(fatalities >= input$nb_fatalities)
                   
@@ -32,8 +31,7 @@ server <- function(input, output, session) {
             setView( -98.58, 39.82, zoom = 5) %>% 
             addTiles() %>% 
             addCircleMarkers(
-                # CODE BELOW: Add parameters popup and radius and map them
-                # to the summary and fatalities columns
+                
                 popup = ~summary, radius = ~fatalities,
                 fillColor = 'red', color = 'red', weight = 1
             )
